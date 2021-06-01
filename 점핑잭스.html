@@ -82,7 +82,7 @@
         <div>
              <button id="autoClickBtn" class="btn btn-primary" type="button" onclick="init()">Let's Go</button>
             <label for="MaxRep">Num of Rep:</label>
-            <input type="text" maxlength="3" size="3" id="" name="" value="">
+            <input type="text" maxlength="3" size="3" id="MaxRepHa" name="" value=10>
         </div>
         
         <div><canvas id="canvas"></canvas></div>
@@ -214,6 +214,16 @@
             // Prediction 2: run input through teachable machine classification model
             const prediction = await model.predict(posenetOutput);
             
+
+            // input number 개수 == count
+            if(document.getElementById("MaxRepHa").value == count){
+                var audio = new Audio('./data/Voice/한글/유학생/고생했어요.mp3');
+                audio.play();
+                count++;
+                await sleep (1000);
+                location.replace("Result.html");
+            }
+            
             // 10% 마이너스 하는게 화면으로는 10% + 
             
             // prediction[0] -> stand_stance
@@ -224,11 +234,11 @@
 
             // SQUAT COUNTER JAVASCRIPT
             // GOOD POSTURE PERCENTAGE
-            $('#probability').html( prediction[1].probability.toFixed(2) * 100 );
+            $('#probability').html( (prediction[1].probability.toFixed(2) * 100).toFixed(0) );
             $('.probprog').css('stroke-dashoffset', probprog - (probprog * prediction[1].probability.toFixed(2)));
 
             // BAD POSTURE PERCENTAGE 
-            $('#wprobability').html( prediction[0].probability.toFixed(2) * 100 );
+            $('#wprobability').html( (prediction[0].probability.toFixed(2) * 100).toFixed(0) );
             $('.wprobprog').css('stroke-dashoffset', wprobprog - (wprobprog * prediction[0].probability.toFixed(2)));
 
             //

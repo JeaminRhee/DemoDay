@@ -70,7 +70,7 @@ body {
  .circle-big .probprog {
 	 fill: none;
 	 stroke-width: 10px;
-	 stroke: #f71124;
+	 stroke: #0313ff;
 	 stroke-linecap: round;
 	 stroke-dasharray: 326.56;
 	 stroke-dashoffset: 327;
@@ -82,7 +82,7 @@ body {
  .circle-big .wprobprog {
 	 fill: none;
 	 stroke-width: 10px;
-	 stroke: #fce06d;
+	 stroke: #ff0331;
 	 stroke-linecap: round;
 	 stroke-dasharray: 326.56;
 	 stroke-dashoffset: 327;
@@ -90,7 +90,6 @@ body {
 	 transform-origin: 50% 50%;
 	 animation: big 1.5s ease-out;
 }
-
 
 
  .circle-big .text {
